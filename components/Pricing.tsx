@@ -21,7 +21,7 @@ export default function Pricing({ onGetStartedClick }: PricingProps) {
         {/* Stripe Pricing Table */}
         <div className="mt-12">
           <stripe-pricing-table 
-           pricing-table-id="prctbl_1SMFqeK9IATbThdZgNndCjG
+           pricing-table-id="prctbl_1SMFqeK9IATbThdZgNndC5"jG
             publishable-key="pk_live_51SMCqiGbMex0PqXmBKSmn6McZXX7U8oP7gSKNtvgPcDWT37bYgvktelior7944swbgl36qscHyb8DDEuLQitB1600Tn8oJWPY">
           </stripe-pricing-table>
         </div>
