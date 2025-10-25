@@ -13,6 +13,7 @@ const pricingPlans = [
     description: 'Para agentes que empiezan a explorar el poder de la IA.',
     features: ['10 análisis/mes', 'Generador de descripciones básico', 'Soporte por email'],
     isPopular: false,
+        paymentLink: '#',
   },
   {
     name: 'PRO',
@@ -21,6 +22,7 @@ const pricingPlans = [
     description: 'La solución ideal para agentes individuales y equipos pequeños.',
     features: ['Análisis ilimitados', 'Descripciones IA avanzadas', 'Generador de Tours Virtuales (Beta)', 'Soporte prioritario'],
     isPopular: true,
+        paymentLink: 'https://buy.stripe.com/test_dRmeVdgAetp22ifS9AA00',
   },
   {
     name: 'AGENCY',
@@ -29,6 +31,7 @@ const pricingPlans = [
     description: 'Potencia y escala para agencias inmobiliarias en crecimiento.',
     features: ['Todo en PRO', 'Panel de equipo', 'Marca blanca en reportes', 'API de integración'],
     isPopular: false,
+        paymentLink: 'https://buy.stripe.com/test_bJecN5ckBad96iV9AA01',
   },
 ];
 
@@ -69,8 +72,7 @@ const Pricing: React.FC<PricingProps> = ({ onGetStartedClick }) => {
                 ))}
               </ul>
               <button
-                onClick={onGetStartedClick}
-                className={`w-full font-semibold py-3 rounded-lg transition-colors duration-300 ${plan.isPopular ? 'bg-purple-600 hover:bg-purple-500 text-white' : 'bg-slate-700 hover:bg-slate-600 text-slate-200'}`}
+                onClick={() => window.location.href = plan.paymentLink}                className={`w-full font-semibold py-3 rounded-lg transition-colors duration-300 ${plan.isPopular ? 'bg-purple-600 hover:bg-purple-500 text-white' : 'bg-slate-700 hover:bg-slate-600 text-slate-200'}`}
               >
                 Empezar Ahora
               </button>
