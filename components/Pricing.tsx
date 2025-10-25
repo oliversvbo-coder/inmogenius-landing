@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 
 interface PricingProps {
   onGetStartedClick: () => void;
@@ -8,9 +7,6 @@ interface PricingProps {
 export default function Pricing({ onGetStartedClick }: PricingProps) {
   return (
     <section id="pricing" className="py-20 bg-gradient-to-b from-white to-gray-50">
-      <Helmet>
-        <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-      </Helmet>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
