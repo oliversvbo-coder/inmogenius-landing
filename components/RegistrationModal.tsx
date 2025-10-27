@@ -1,19 +1,50 @@
 
-import React from 'react';
-
-interface RegistrationModalProps {
+import React, { useState } from 'react'; RegistrationModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
+  if (!isOpen) return null
+    
+      const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState<'success' | 'error'>('success');;
 
-  const handleSubmit = (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
-    alert('¡Gracias por registrarte! Te notificaremos cuando la plataforma esté lista.');
-    onClose();
+    setLoading(true);
+    setMessage('');
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+    
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password })
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        setMessageType('success');
+        setMessage(data.message || '¡Registro exitoso!');
+        e.currentTarget.reset();
+        setTimeout(() => onClose(), 2000);
+      } else {
+        setMessageType('error');
+        setMessage(data.error || 'Error en el registro');
+      }
+    } catch (error) {
+      setMessageType('error');
+      setMessage('Error de conexión. Intenta de nuevo.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -62,13 +93,22 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
               className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Crea una contraseña segura"
             />
-          </div>
+          </div
+          
+                        {message && (
+                <div className={`mb-4 p-3 rounded-lg text-sm ${
+                  messageType === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                }`}>
+                  {message}
+                </div>
+              )}>
           <button
-            type="submit"
+            type="submit
+            "
+              disabled={loading}
             className="w-full bg-purple-600 text-white font-semibold py-3 rounded-lg hover:bg-purple-500 transition-colors duration-300"
           >
-            Crear mi cuenta gratis
-          </button>
+              {loading ? 'Procesando...' : 'Crear mi cuenta gratis'}          </button>
         </form>
       </div>
       <style>{`
