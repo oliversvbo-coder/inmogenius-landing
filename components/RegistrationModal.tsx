@@ -1,4 +1,4 @@
-
+co
 import React, { useState } from 'react';
 
 interface RegistrationModalProps {
@@ -98,9 +98,9 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
           </div
           
                         {message && (
-                <div className={`mb-4 p-3 rounded-lg text-sm ${
+                <div className=``mb-4 p-3 rounded-lg text-sm ${
                   messageType === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                }`}>
+                }``>
                   {message}
                 </div>
               )}>
