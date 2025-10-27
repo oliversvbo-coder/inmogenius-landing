@@ -1,5 +1,7 @@
 
-import React, { useState } from 'react'; RegistrationModalProps {
+import React, { useState } from 'react';
+
+interface RegistrationModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
