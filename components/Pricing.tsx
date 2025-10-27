@@ -2,8 +2,6 @@ import React from 'react';
 
 interface PricingProps {
   onGetStartedClick: () => void;
-}Fix: remove stray characters in pricing-table-idFix: remove stray characters in pricing-table-id
-
 export default function Pricing({ onGetStartedClick }: PricingProps) {
   return (
     <section id="pricing" className="py-20 bg-gradient-to-b from-white to-gray-50">
@@ -11,11 +9,6 @@ export default function Pricing({ onGetStartedClick }: PricingProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Elige el ReRemoved trailing 'jG' after pricing-table-id to resolve Vercel build error.Fix: remove stray characters in pricing-table-id
-
-Removed trailing 'jG' after pricing-table-id to resolve Vercel build error.Fix: remove stray characters in pricing-table-id
-
-Removed trailing 'jG' after pricing-table-id to resolve Vercel build error.moved trailing 'jG' after pricing-table-id to resolve Vercel build error.Plan Perfecto para Ti
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Comienza hoy y transforma tu forma de analizar propiedades inmobiliarias
@@ -30,4 +23,5 @@ publishable-key="pk_live_51SMCqXK9IATbThdZvlwU8dqulOG4m2VLGYT4TWXxPQDt1jBYiixzDt
 </stripe-pricing-table>/div>
       </div>
     </section>
+  
   
